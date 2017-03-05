@@ -13,4 +13,5 @@ mkfs.ext4 -F wheezy.img
 sudo mkdir -p /mnt/wheezy
 sudo mount -o loop wheezy.img /mnt/wheezy
 sudo cp -a $INSTALLDEB/. /mnt/wheezy/.
+sudo echo "mount -t securityfs securityfs /sys/kernel/security" >> /mnt/wheezy/root/.bashrc
 sudo umount /mnt/wheezy
