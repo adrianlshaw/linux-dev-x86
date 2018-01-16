@@ -1,3 +1,4 @@
+# Needs to have root privileges
 INSTALLDEB=/opt/wheezy
 mkdir $INSTALLDEB
 debootstrap --arch=amd64 wheezy $INSTALLDEB && \
