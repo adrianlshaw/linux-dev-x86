@@ -1,5 +1,6 @@
 # Needs to have root privileges
 INSTALLDEB=/opt/wheezy
+cd /tmp
 mkdir $INSTALLDEB
 debootstrap --arch=amd64 wheezy $INSTALLDEB && \
 sed -i '/^root/ { s/:x:/::/ }' $INSTALLDEB/etc/passwd && \
@@ -12,6 +13,6 @@ cat ~/.ssh/id_rsa.pub | tee $INSTALLDEB/root/.ssh/authorized_keys
 dd if=/dev/zero of=wheezy.img bs=1M seek=4095 count=1
 mkfs.ext4 -F wheezy.img
 mkdir -p /mnt/wheezy
-mount -o loop wheezy.img /mnt/wheezy
+sudo mount -o loop wheezy.img /mnt/wheezy
 cp -a $INSTALLDEB/. /mnt/wheezy/.
-umount /mnt/wheezy
+sudo umount /mnt/wheezy
