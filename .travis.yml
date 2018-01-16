@@ -3,9 +3,7 @@ sudo: required
 language: bash
 
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y git build-essential
+  - docker build -t test .
 
 script:
-  - git clone https://github.com/torvalds/linux.git --depth=1 --branch=v4.7
-  - cp * linux && cd linux && make -j3 && ./setup.sh && ./boot.sh
+  - docker run -ti test
