@@ -5,4 +5,5 @@ COPY *.sh /linux/
 COPY config /linux/.config
 RUN cd /linux && make -j4
 WORKDIR /linux
-ENTRYPOINT [ "/bin/bash", "-c", "/linux/setup.sh && /linux/boot-headless.sh" ]
+COPY ci.sh /linux
+ENTRYPOINT [ "/bin/bash", "-c", "cd /linux && ./setup.sh && ./ci.sh" ]

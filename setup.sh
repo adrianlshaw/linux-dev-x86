@@ -1,6 +1,5 @@
 # Needs to have root privileges
 INSTALLDEB=/opt/wheezy
-cd /tmp
 mkdir $INSTALLDEB
 debootstrap --arch=amd64 wheezy $INSTALLDEB && \
 sed -i '/^root/ { s/:x:/::/ }' $INSTALLDEB/etc/passwd && \
