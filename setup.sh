@@ -1,7 +1,7 @@
 # Needs to have root privileges
 INSTALLDEB=/opt/wheezy
 mkdir $INSTALLDEB
-debootstrap --arch=amd64 wheezy $INSTALLDEB && \
+debootstrap --include=openssh-server --arch=amd64 wheezy $INSTALLDEB && \
 sed -i '/^root/ { s/:x:/::/ }' $INSTALLDEB/etc/passwd && \
 echo 'V0:23:respawn:/sbin/getty 115200 hvc0' | tee -a $INSTALLDEB/etc/inittab && \
 printf '\nauto eth0\niface eth0 inet dhcp\n' | tee -a $INSTALLDEB/etc/network/interfaces && \
