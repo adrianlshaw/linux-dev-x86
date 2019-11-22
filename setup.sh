@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -e
+
 INSTALLDEB=/opt/buster
 mkdir $INSTALLDEB
 sudo debootstrap --arch=amd64 buster $INSTALLDEB && \
