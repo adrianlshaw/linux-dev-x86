@@ -5,7 +5,7 @@ tmux new-session -s asdf -n myWindow -d
 
 
 tmux send-keys -t asdf:myWindow.0 "kvm -s -kernel arch/x86/boot/bzImage \
-  -drive file=wheezy.img,if=virtio \
+  -drive file=buster.img,if=virtio \
   -net nic,model=virtio,macaddr=52:54:00:12:34:56 \
   -net user,hostfwd=tcp:127.0.0.1:4444-:22 \
   -append 'root=/dev/vda console=hvc0' \
