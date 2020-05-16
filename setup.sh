@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+command -v debootstrap >/dev/null 2>&1 || { echo >&2 "Install debootstrap.  Aborting."; exit 1; }
+
 INSTALLDEB=/opt/buster
 mkdir $INSTALLDEB
 sudo debootstrap --arch=amd64 buster $INSTALLDEB && \
